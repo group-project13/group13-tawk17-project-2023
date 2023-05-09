@@ -1,7 +1,7 @@
 <?php
 
 session_start();
-$con=mysqli_connect("localhost","username","password","database_name");
+$con=mysqli_connect("localhost","root","root","database_name");
 
 if(isset($_POST['submit'])){
 	$username=mysqli_real_escape_string($con,$_POST['username']);
