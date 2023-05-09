@@ -1,7 +1,13 @@
 <?php
 
 session_start();
-$con=mysqli_connect("localhost","root","root","database_name");
+
+// Create connection
+$conn = new mysqli("localhost", "root", "root", "database_name");
+// Check connection
+if ($conn->connect_error) {
+	die("Connection failed: " . $conn->connect_error);
+}
 
 if(isset($_POST['submit'])){
 	$username=mysqli_real_escape_string($con,$_POST['username']);
