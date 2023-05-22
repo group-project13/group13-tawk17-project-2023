@@ -1,5 +1,10 @@
 <?php
 
+// Check for a defined constant or specific file inclusion
+if (!defined('MY_APP') && basename($_SERVER['PHP_SELF']) == basename(__FILE__)) {
+    die('This file cannot be accessed directly.');
+}
+
 // Define global constant to prevent direct script loading 
 define('MY_APP', true);
 
