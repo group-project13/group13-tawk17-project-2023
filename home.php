@@ -2,7 +2,7 @@
 <html>
 <head>
 	<title>Table Booking Application</title>
-	<link rel="stylesheet" type="text/css" href="home.css">
+	<link rel="stylesheet" type="text/css" href="../home.css">
 </head>
 <body>
 	<header>
