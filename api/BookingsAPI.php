@@ -6,37 +6,37 @@ if (!defined('MY_APP') && basename($_SERVER['PHP_SELF']) == basename(__FILE__)) 
 }
 
 require_once __DIR__ . "/RestAPI.php";
-require_once __DIR__ . "/../business-logic/PurchasesService.php";
+require_once __DIR__ . "/../business-logic/BookingsService.php";
 
 
-class PurchasesAPI extends RestAPI
+class BookingsAPI extends RestAPI
 {
 
     // Handles the request by calling the appropriate member function
     public function handleRequest()
     {
 
-        // GET: /api/purchases
+        // GET: /api/bookings
         if ($this->method == "GET" && $this->path_count == 2) {
             $this->getAll();
         }
 
-        // GET: /api/purchases/{id}
+        // GET: /api/bookings/{id}
         else if ($this->path_count == 3 && $this->method == "GET") {
             $this->getById($this->path_parts[2]);
         }
 
-        // POST: /api/purchases
+        // POST: /api/bookings
         else if ($this->path_count == 2 && $this->method == "POST") {
             $this->postOne();
         }
 
-        // PUT: /api/purchases/{id}
+        // PUT: /api/bookings/{id}
         else if ($this->path_count == 3 && $this->method == "PUT") {
             $this->putOne($this->path_parts[2]);
         }
 
-        // DELETE: /api/purchases/{id}
+        // DELETE: /api/bookings/{id}
         else if ($this->path_count == 3 && $this->method == "DELETE") {
             $this->deleteOne($this->path_parts[2]);
         }
@@ -53,12 +53,12 @@ class PurchasesAPI extends RestAPI
         $this->requireAuth();
 
         if ($this->user->user_role === "admin") {
-            $purchases = PurchasesService::getAllPurchases();
+            $bookings = BookingsService::getAllBookings();
         } else {
-            $purchases = PurchasesService::getPurchasesByUser($this->user->user_id);
+            $bookings = BookingsService::getBookingsByUser($this->user->user_id);
         }
 
-        $this->sendJson($purchases);
+        $this->sendJson($bookings);
     }
 
 
@@ -66,17 +66,17 @@ class PurchasesAPI extends RestAPI
     {
         $this->requireAuth();
 
-        $purchase = PurchasesService::getPurchaseById($id);
+        $booking = BookingsService::getBookingById($id);
 
-        if (!$purchase) {
+        if (!$booking) {
             $this->notFound();
         }
 
-        if ($this->user->user_role !== "admin" || $purchase->user_id !== $this->user->user_id) {
+        if ($this->user->user_role !== "admin" || $booking->user_id !== $this->user->user_id) {
             $this->forbidden();
         }
 
-        $this->sendJson($purchase);
+        $this->sendJson($booking);
     }
 
 
@@ -84,23 +84,23 @@ class PurchasesAPI extends RestAPI
     {
         $this->requireAuth();
 
-        $purchase = new PurchaseModel();
+        $booking = new BookingModel();
 
-        $purchase->product_name = $this->body["product_name"];
-        $purchase->price = $this->body["price"];
-        $purchase->purchase_time = $this->body["purchase_time"];
+        $booking->booking_name = $this->body["booking_name"];
+        $booking->restaurant_name = $this->body["restaurant_name"];
+        $booking->date_time = $this->body["date_time"];
 
-        // Admins can connect any user to the purchase
+        // Admins can connect any user to the booking
         if ($this->user->user_role === "admin") {
-            $purchase->user_id = $this->body["user_id"];
+            $booking->user_id = $this->body["user_id"];
         }
 
-        // Regular users can only add purchases to themself
+        // Regular users can only add bookings to themself
         else {
-            $purchase->user_id = $this->user->user_id;
+            $booking->user_id = $this->user->user_id;
         }
 
-        $success = PurchasesService::savePurchase($purchase);
+        $success = BookingsService::saveBooking($booking);
 
         if ($success) {
             $this->created();
@@ -114,14 +114,14 @@ class PurchasesAPI extends RestAPI
     {
         $this->requireAuth(["admin"]);
 
-        $purchase = new PurchaseModel();
+        $booking = new BookingModel();
 
-        $purchase->product_name = $this->body["product_name"];
-        $purchase->price = $this->body["price"];
-        $purchase->purchase_time = $this->body["purchase_time"];
-        $purchase->user_id = $this->body["user_id"];
+        $booking->booking_name = $this->body["booking_name"];
+        $booking->restaurant_name = $this->body["restaurant_name"];
+        $booking->date_time = $this->body["date_time"];
+        $booking->user_id = $this->body["user_id"];
 
-        $success = PurchasesService::updatePurchaseById($id, $purchase);
+        $success = BookingsService::updateBookingById($id, $booking);
 
         if ($success) {
             $this->ok();
@@ -130,19 +130,19 @@ class PurchasesAPI extends RestAPI
         }
     }
 
-    // Deletes the purchase with the specified ID in the DB
+    // Deletes the booking with the specified ID in the DB
     private function deleteOne($id)
     {
-        // only admins can delete purchases
+        // only admins can delete bookings
         $this->requireAuth(["admin"]);
 
-        $purchase = PurchasesService::getPurchaseById($id);
+        $booking = BookingsService::getBookingById($id);
 
-        if ($purchase == null) {
+        if ($booking == null) {
             $this->notFound();
         }
 
-        $success = PurchasesService::deletePurchaseById($id);
+        $success = BookingsService::deleteBookingById($id);
 
         if ($success) {
             $this->noContent();

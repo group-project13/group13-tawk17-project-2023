@@ -31,8 +31,8 @@ class RestAPI
         $this->query_params = $query_params;
 
         // Count the number of "parts" in the path
-        // Example: "api/Purchases" is 2 parts and
-        // "api/Purchases/5" is 3 parts
+        // Example: "api/Bookings" is 2 parts and
+        // "api/Bookings/5" is 3 parts
         $this->path_count = count($this->path_parts);
 
         $this->parseBody();

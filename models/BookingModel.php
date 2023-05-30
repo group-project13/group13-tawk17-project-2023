@@ -7,10 +7,10 @@ if (!defined('MY_APP') && basename($_SERVER['PHP_SELF']) == basename(__FILE__)) 
 
 // Model class for users-table in database
 
-class PurchaseModel{
-    public $purchase_id;
-    public $product_name;
-    public $price;
-    public $purchase_time;
+class BookingModel{
+    public $booking_id;
+    public $booking_name;
+    public $restaurant_name;
+    public $date_time;
     public $user_id;
 }
