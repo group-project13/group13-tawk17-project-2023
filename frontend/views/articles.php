@@ -6,33 +6,28 @@ Template::header("Book Table");
 ?>
 <div class="booking-page">
     <h1>Book your table here</h1>
-    <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-        Tempora nam vitae quos nisi, eius delectus libero quia at, 
-        veritatis ipsa facere obcaecati nihil possimus non, dolorem 
-        molestias temporibus laboriosam totam.
-    </p>
+    <form action="reservation.php" method="post">
 
-    <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-        Tempora nam vitae quos nisi, eius delectus libero quia at, 
-        veritatis ipsa facere obcaecati nihil possimus non, dolorem 
-        molestias temporibus laboriosam totam.
-    </p>
+  <div class="elem-group">
+    <label for="name">Your Name</label>
+    <input type="text" class="name" name="visitor_name" placeholder="Rickard Persson" required>
+  </div>
+  
+  <div class="elem-group">
+    <label for="restaurant-selection">Select Which Restaurant</label>
+    <select id="restaurant-selection" name="restaurant_preference" required>
+        <option value="">Choose a Restaurant from the List</option>
+        <option value="connecting">Jönköping</option>
+        <option value="adjoining">Göteborg</option>
+        <option value="adjacent">Stockholm</option>
+    </select>
+  </div>
 
-    <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-        Tempora nam vitae quos nisi, eius delectus libero quia at, 
-        veritatis ipsa facere obcaecati nihil possimus non, dolorem 
-        molestias temporibus laboriosam totam.
-    </p>
+    <label for="checkin-date">Check-in Date</label>
+    <input type="datetime-local" id="booking-date" name="booking" required>
 
-    <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-        Tempora nam vitae quos nisi, eius delectus libero quia at, 
-        veritatis ipsa facere obcaecati nihil possimus non, dolorem 
-        molestias temporibus laboriosam totam.
-    </p>
+  <button class="booking-button"type="submit">Book Table</button>
+</form>
 </div>
 
 

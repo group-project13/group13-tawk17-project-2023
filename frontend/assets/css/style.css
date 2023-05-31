@@ -200,4 +200,59 @@ div.solo-item img{
 .booking-page {
     display: block;
     text-align: center;
+    width: 70%;
+    margin: 0 auto;
+    padding: 50px;
 }
+
+.booking-page > h1 {
+    color: blanchedalmond;
+}
+
+  div.elem-group {
+    margin: 20px 0;
+  }
+  
+  
+  label {
+    display: block;
+    font-family: 'Nanum Gothic';
+    padding-bottom: 10px;
+    font-size: 1.25em;
+  }
+  
+  input, select, textarea {
+    border-radius: 2px;
+    border: 2px solid #777;
+    box-sizing: border-box;
+    font-size: 1.25em;
+    font-family: 'Nanum Gothic';
+    width: 100%;
+    padding: 10px;
+  }
+  
+  
+  .name {
+    width: 150%;
+    padding: 50px;
+    margin-bottom: 70px;
+  }
+  
+
+  /* ------- BUTTON BOOKING ------- */
+  .booking-button {
+    margin: 20px 0;
+    height: 50px;
+    padding: 0 20px;
+    background: blanchedalmond;
+    border: none;
+    color: black;
+    font-family: 'Nanum Gothic';
+    font-size: 1.25em;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .booking-button:hover {
+    border: 2px solid black;
+  }
