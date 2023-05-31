@@ -14,17 +14,17 @@ Template::header("Book Table");
   </div>
   
   <div class="elem-group">
-    <label for="restaurant-selection">Select Which Restaurant</label>
+    <label for="restaurant-selection">Select Which City</label>
     <select id="restaurant-selection" name="restaurant_preference" required>
-        <option value="">Choose a Restaurant from the List</option>
+        <option value="">Choose a City from the List</option>
         <option value="connecting">Jönköping</option>
         <option value="adjoining">Göteborg</option>
         <option value="adjacent">Stockholm</option>
     </select>
   </div>
 
-    <label for="checkin-date">Check-in Date</label>
-    <input type="datetime-local" id="booking-date" name="booking" required>
+  <label for="checkin-date">Check-in Date</label>
+  <input type="datetime-local" id="booking-date" name="booking" required>
 
   <button class="booking-button"type="submit">Book Table</button>
 </form>

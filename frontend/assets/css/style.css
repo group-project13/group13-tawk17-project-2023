@@ -21,6 +21,8 @@ img {
 }
 
 .btn {
+    width: 60%;
+    margin: 10px auto;
     font-weight: 700;
     padding: 5px 15px;
     border-radius: 5px;
@@ -29,7 +31,7 @@ img {
 }
 
 .delete-btn {
-    background-color: red;
+    background-color: brown;
     color: white;
     border-color: white;
 }
@@ -42,9 +44,7 @@ form {
     margin: 15px 0;
 }
 
-input[type=text],
-input[type=number],
-input[type=password],
+
 textarea,
 select {
     border: 1px solid black;
@@ -55,9 +55,6 @@ select {
     width: 240px;
 }
 
-input[type=file] {
-    margin: 10px 0;
-}
 
 .error {
     border: 2px solid red;
@@ -231,12 +228,7 @@ div.solo-item img{
     padding: 10px;
   }
   
-  
-  .name {
-    width: 150%;
-    padding: 50px;
-    margin-bottom: 70px;
-  }
+
   
 
   /* ------- BUTTON BOOKING ------- */

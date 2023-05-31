@@ -32,7 +32,7 @@ class Template
 
                 <?php if ($user) : ?>
                     <a href="<?= $home_path ?>/auth/profile">Profile</a>
-                    <a href="<?= $home_path ?>/bookings">Booking name</a>
+                    <!-- <a href="<?= $home_path ?>/bookings">Booking name</a> -->
                 <?php else : ?>
                     <a href="<?= $home_path ?>/auth/login">Log in</a>
                 <?php endif; ?>
