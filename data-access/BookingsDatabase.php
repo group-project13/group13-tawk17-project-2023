@@ -69,11 +69,12 @@ class BookingsDatabase extends Database
 
         $stmt = $this->conn->prepare($query);
 
-        $stmt->bind_param("siii", $booking->booking_name, $booking->restaurant_name, $booking->date_time, $booking->user_id);
-//siii om det blir bugg
+        $stmt->bind_param("sssi", $booking->booking_name, $booking->restaurant_name, $booking->date_time, $booking->user_id);
+
         $success = $stmt->execute();
 
         return $success;
+
     }
 
 
@@ -84,7 +85,7 @@ class BookingsDatabase extends Database
 
         $stmt = $this->conn->prepare($query);
 
-        $stmt->bind_param("siiii", $booking->booking_name, $booking->restaurant_name, $booking->date_time, $booking->user_id, $booking_id);
+        $stmt->bind_param("sssii", $booking->booking_name, $booking->restaurant_name, $booking->date_time, $booking->user_id, $booking_id);
 
         $success = $stmt->execute();
 

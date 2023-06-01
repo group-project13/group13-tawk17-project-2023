@@ -14,12 +14,14 @@ Template::header("Bookings");
     <?php foreach ($this->model as $booking) : ?>
 
         <article class="item">
+            
             <div>
                 <b><?= $booking->booking_name ?></b> <br>
                 <span>Restaurant name: <?= $booking->restaurant_name ?></span> <br>
                 <span>Date & Time: <?= $booking->date_time ?></span> <br>
             </div>
 
+            
 
             <?php if ($this->user->user_role === "admin") : ?>
 
@@ -27,11 +29,10 @@ Template::header("Bookings");
                     <b>User ID: </b>
                     <?= $booking->user_id ?>
                 </p>
-            <a href="<?= $this->home ?>/bookings/<?= $booking->booking_id ?>/edit">Edit</a>
 
             <?php endif; ?>
 
-            <a href="<?= $this->home ?>/bookings/<?= $booking->booking_id ?>">Show</a>
+            <a href="<?= $this->home ?>/bookings/<?= $booking->booking_id ?>/edit">Edit</a>
         </article>
 
     <?php endforeach; ?>

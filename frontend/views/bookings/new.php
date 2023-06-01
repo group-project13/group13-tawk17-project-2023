@@ -4,20 +4,30 @@ require_once __DIR__ . "/../../Template.php";
 Template::header("New Booking");
 ?>
 
-<h1>New Booking</h1>
+<div class="booking-page">
+    <h1>Book your table here</h1>
+    <form action="<?= $this->home ?>/bookings" method="post">
 
-<form action="<?= $this->home ?>/bookings" method="post">
+  <div class="elem-group">
+    <label for="name">Your Name</label>
+    <input type="text" id="booking_name" name="booking_name" placeholder="Rickard Persson" required>
+  </div>
+  
+  <div class="elem-group">
+    <label for="restaurant-selection">Select Which City</label>
+    <select id="restaurant" name="restaurant_name" required>
+        <option value="">Choose a City from the List</option>
+        <option>Jönköping</option>
+        <option>Göteborg</option>
+        <option>Stockholm</option>
+    </select>
+  </div>
 
-    <input type="text" name="booking_name" placeholder="Booking name"> <br>
-    <input type="text" name="restaurant_name" placeholder="Restaurant name"> <br>
-    <input type="number" name="date_time" placeholder="Date & time"> <br>
+  <label for="checkin-date">Check-in Date</label>
+  <input type="datetime-local" id="date_time" name="date_time" required>
 
-
-    <?php if ($this->user->user_role === "admin") : ?>
-        <input type="number" name="user_id" placeholder="User ID"> <br>
-    <?php endif; ?>
-
-    <input type="submit" value="Save" class="btn">
+  <button class="booking-button"type="submit">Book Table</button>
 </form>
+</div>
 
 <?php Template::footer(); ?>

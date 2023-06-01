@@ -98,7 +98,7 @@ class BookingController extends ControllerBase
     // Gets one and shows it in the edit view
     private function showEditForm()
     {
-        $this->requireAuth(["admin"]);
+        $this->requireAuth();
 
         // Get the booking with the ID from the URL
         $booking = $this->getBooking();
@@ -180,7 +180,7 @@ class BookingController extends ControllerBase
         // Get updated properties from the body
         $booking->booking_name = $this->body["booking_name"];
         $booking->restaurant_name = $this->body["restaurant_name"];
-        $booking->date_time = time();
+        $booking->date_time = $this->body["date_time"];
 
         // Admins can connect any user to the booking
         if($this->user->user_role === "admin"){
@@ -207,7 +207,7 @@ class BookingController extends ControllerBase
     // Update a booking with data from the URL and body
     private function updateBooking()
     {
-        $this->requireAuth(["admin"]);
+        $this->requireAuth();
 
         $booking = new BookingModel();
 
@@ -219,7 +219,7 @@ class BookingController extends ControllerBase
         // Get updated properties from the body
         $booking->booking_name = $this->body["booking_name"];
         $booking->restaurant_name = $this->body["restaurant_name"];
-        $booking->date_time = $existing_booking->date_time;
+        $booking->date_time = $this->body["date_time"]; 
         $booking->user_id = $this->body["user_id"];
 
         $success = BookingsService::updateBookingById($id, $booking);
@@ -236,7 +236,7 @@ class BookingController extends ControllerBase
     // Delete a booking with data from the URL
     private function deleteBooking()
     {
-        $this->requireAuth(["admin"]);
+        $this->requireAuth();
 
         // Get ID from the URL
         $id = $this->path_parts[2];

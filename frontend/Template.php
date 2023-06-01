@@ -22,17 +22,16 @@ class Template
         </head>
 
         <body>
-            <header>
+            <header <?= $home_path ?>>
                 <h1><?= $title; ?></h1>
             </header>
 
             <nav>
                 <a href="<?= $home_path ?>">Start</a>
-                <a href="<?= $home_path ?>/articles">Book Table</a>
+                <a href="<?= $home_path ?>/bookings">Bookings</a>
 
                 <?php if ($user) : ?>
                     <a href="<?= $home_path ?>/auth/profile">Profile</a>
-                    <!-- <a href="<?= $home_path ?>/bookings">Booking name</a> -->
                 <?php else : ?>
                     <a href="<?= $home_path ?>/auth/login">Log in</a>
                 <?php endif; ?>
