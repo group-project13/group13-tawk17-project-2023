@@ -33,10 +33,13 @@ Template::header("Bookings");
             <?php endif; ?>
 
             <a href="<?= $this->home ?>/bookings/<?= $booking->booking_id ?>/edit">Edit</a>
+            
         </article>
+        
 
     <?php endforeach; ?>
 
 </div>
 
+<?php Template::map(); ?>
 <?php Template::footer(); ?>

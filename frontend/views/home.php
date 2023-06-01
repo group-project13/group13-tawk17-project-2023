@@ -43,5 +43,6 @@ Template::header("Home");
         Join us at Sakura Bites and immerse yourself in a world of culinary delights that will leave you craving 
         more.
     </p>
+    
 </div>
 <?php Template::footer(); ?>

@@ -114,18 +114,7 @@ main {
     width: 100%;
 }
 
-/* -- Footer -- */
 
-footer {
-    background: #000f1f;
-    padding: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    font-style: italic;
-    font-size: 0.8em;
-}
 
 /* -- Items -- */
 
@@ -248,3 +237,9 @@ div.solo-item img{
   .booking-button:hover {
     border: 2px solid black;
   }
+
+    /* ------- MAP ------- */
+  #map {
+  height: 70%;
+  width: 50%;
+}

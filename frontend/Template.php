@@ -16,7 +16,10 @@ class Template
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <title><?= $title ?> - Multitier Shop</title>
 
+
+            <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
             <link rel="stylesheet" href="<?= $home_path ?>/assets/css/style.css">
+            <script type="module" src="./assets/js/index.js"></script>
 
             <script src="<?= $home_path ?>/assets/js/script.js"></script>
         </head>
@@ -45,16 +48,25 @@ class Template
                     </div>
                 <?php endif; ?>
 
+                
             <?php }
 
-
-
+        public static function map() {
+            ?>
+            <div id="map">
+                <script
+                    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC5FWuHa-QaWFDkbkBbhtiTqmAnHiDZIUI&callback=initMap&v=weekly"
+                    defer
+                >
+                </script>
+                </div>
+            <?php
+        }
         public static function footer()
         {
             ?>
             </main>
             <footer>
-                Copyright 2025
             </footer>
         </body>
 

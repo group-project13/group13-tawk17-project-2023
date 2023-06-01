@@ -35,5 +35,4 @@ Template::header($this->model["booking"]->booking_id);
 
 <?php endif; ?>
 
-
 <?php Template::footer(); ?>
