@@ -72,9 +72,6 @@ class BookingController extends ControllerBase
 
 
 
-    //HADE MED EXCHANGE CURRENCY HÄR INNAN ASDASDAS
-    //ASDASDASD
-
 
     // Gets one booking and shows the in the single view
     private function showOne()
